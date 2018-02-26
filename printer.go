@@ -642,6 +642,10 @@ func (p *printer) writeComment(comment *ast.Comment) {
 		}
 	}
 
+	if len(text) == 0 {
+		return
+	}
+
 	// shortcut common case of //-style comments
 	if text[1] == '/' {
 		p.writeString(pos, trimRight(text), true)
